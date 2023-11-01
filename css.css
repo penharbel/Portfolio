@@ -1,0 +1,162 @@
+body
+{
+    overflow-x: hidden;
+    background-color: rgb(0, 10, 3);
+}
+
+
+#foto
+{
+    width: 600px;
+    height: 600px;
+}
+
+#div1
+{
+    height: 650px;
+    width: 1280px;
+    margin-top: 0px;
+    margin-right: -10px;
+    margin-left: -10px;
+}
+
+#divText
+{
+    width: 580px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#botaoSc
+{
+    width: 100px;
+    height: 100px;
+    border-width: 2px;
+    border-radius: 50px;
+    border-style: solid;
+    background-color: rgba(127, 255, 212, 0);
+    font-size: 17px;
+    font-weight: 700;
+    border-color: rgb(21, 122, 55);
+    color: rgb(1, 43, 20);
+}
+
+
+#greendiv
+{
+    margin-left: -10px;
+    margin-right: -10px;
+    display: flex;
+    justify-content: center;
+}
+
+#topdiv
+{
+    background-color: rgba(0, 10, 3, 0);
+    width: 1280px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+
+#triangulo
+{
+    width: 0; 
+    height: 0; 
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-top: 100px solid #c57000;
+    z-index: 2;
+}
+
+#colordiv
+{
+    background: radial-gradient(#FF9200, #B56800);
+    width: 1280px;
+    height: 5px;
+    z-index: 1;
+    position: absolute;
+}
+
+#topPrincipal
+{
+    position: absolute;
+    top: 10px;
+    width: 50px;
+    height: 50px;
+    z-index: 2;
+}
+
+#imgWpp
+{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 0;
+}
+#imgGmail
+{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 0;
+}
+#imgGitH
+{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 0;
+}
+
+
+
+#divImg1
+{
+    width: 75px;
+    height: 75px;
+    background-color: #eb8b0e;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border-radius: 37px;
+    z-index: 1;
+}
+#divImg2
+{
+    width: 75px;
+    height: 75px;
+    background-color: #eb8b0e;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border-radius: 37px;
+    z-index: 1;
+}
+#divImg3
+{
+    width: 75px;
+    height: 75px;
+    background-color: #eb8b0e;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border-radius: 37px;
+    z-index: 1;
+}
+
+#tech
+{
+    display: flex;
+    justify-content: space-between;
+    width: 1100px;
+    height: 600px;
+    background-color: rgb(1, 26, 8);
+    margin-top: 250px;
+}
