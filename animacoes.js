@@ -1,4 +1,8 @@
+/*---------------------------controle das animações----------------------------*/
 var ativos = 0;
+var trianguloAtv = 0;
+
+/*---------------------------Botão para scrollar----------------------------*/
 function butao1()
 {
     
@@ -50,7 +54,6 @@ function butao1()
                 controle++; 
             }
 }
-
 function scrollar()
 {
     let controle = window.scrollY;
@@ -72,34 +75,68 @@ function scrollar()
         }
 }
 
-
+/*---------------------------triangulo-opções----------------------------*/
 function TrianguloTam()
 {
+    if(trianguloAtv == 1)
+    {
+        return;
+    }
    let Bl = document.getElementById("triangulo").style;
    let Tp = document.getElementById("topPrincipal").style;
+   let controle = 100;
 
-   Bl.borderTop = "130px solid #c57000";
-   Bl.borderLeft = "130px solid transparent";
-   Bl.borderRight = "130px solid transparent";
+   let I = setInterval(trianguloAlm, 2)
 
-   Tp.height = 70 + "px";
-   Tp.width = 70 + "px";
+        function trianguloAlm()
+        {
+            if(controle == 130)
+            {
+                clearInterval(I);
+                trianguloAtv = 1;
+                return;
+            }
+            Bl.borderTop = controle + "px solid #c57000";
+            Bl.borderLeft = controle + "px solid transparent";
+            Bl.borderRight = controle + "px solid transparent";
+            if(controle < 120)
+            {
+                Tp.height = (controle - 52) + "px";
+                Tp.width = (controle - 52) + "px";
+            }
+            controle++;
+        }
 
 }
 function TrianguloTim()
 {
    let Bl = document.getElementById("triangulo").style;
    let Tp = document.getElementById("topPrincipal").style;
+   let controle = 130;
 
-   Bl.borderTop = "100px solid #c57000";
-   Bl.borderLeft = "100px solid transparent";
-   Bl.borderRight = "100px solid transparent";
+   let I = setInterval(trianguloDlm, 1);
 
-   Tp.height = 50 + "px";
-   Tp.width = 50 + "px";
-
+    function trianguloDlm()
+    {
+        if(controle == 100)
+        {
+            clearInterval(I);
+            trianguloAtv = 0;
+            return;
+        }
+        Bl.borderTop = controle + "px solid #c57000";
+        Bl.borderLeft = controle + "px solid transparent";
+        Bl.borderRight = controle + "px solid transparent";
+        if(controle > 110)
+        {
+            Tp.height = (controle - 60) + "px";
+            Tp.width = (controle - 60) + "px";
+        }
+        controle--;
+    }
 }
 
+/*---------------------------<div> do triangulo----------------------------*/
 function topdivS()
 {
 
@@ -116,7 +153,7 @@ var E = setInterval(acimaD, 1);
             document.getElementById("topdiv").style.top = mov + "px";
 
         }
-        if(window.scrollY < 647)
+        if(window.scrollY < 658)
         {
             document.getElementById("topdiv").style.top = 658 + "px"; 
         }
@@ -127,6 +164,7 @@ var E = setInterval(acimaD, 1);
 }
 
 
+/*---------------------------Animação para contatos----------------------------*/
 function constroi()
 {
     if(ativos == 0)
@@ -139,9 +177,6 @@ function constroi()
         return;
     }
 }
-
-
-
 function contatosE()
 {
 
@@ -277,4 +312,10 @@ function RB3()
 function atv()
 {
     ativos = 0;
+}
+
+/*---------------------------Animação para as tecnologias----------------------------*/
+function animacaoTec()
+{
+
 }

@@ -11,7 +11,7 @@
 </head>
 <body onload="topdivS()">
     
-    <div id="div1" style="display: flex; justify-content: space-between; background-color: white;">
+    <div id="div1" >
 
         <div id="divText">
             <h1 style="color: rgb(0, 17, 10);">Diogo Penharbel</h1>
@@ -25,31 +25,49 @@
 
     </div>
 
-    <div id="greendiv" style="width: 1280px; height: 1400px; background-color: rgb(0, 10, 3);">
+    <main id="greendiv" style="width: 1280px; height: 1400px; background-color: rgb(0, 10, 3);">
         
+
+
+        <!-------------------------------------Quem sou----------------------------------------->
         <div id="topdiv" >
 
-            <div onmouseenter="TrianguloTam()" onmouseleave="TrianguloTim()" onclick="constroi()" id="triangulo"></div>
+            <div onmouseenter="TrianguloTam()" onmouseleave="TrianguloTim()" onclick="constroi()" id="triangulo"><img style="position: absolute;" onclick="constroi()" id="topPrincipal" src="Images/icon_contato.png" alt="Contato"></div>
 
             <div id="colordiv"></div>
 
 
 
-            <img onmouseenter="TrianguloTam()" onmouseleave="TrianguloTim()" onclick="constroi()" id="topPrincipal" src="Images/icon_contato.png" alt="Contato">
+            
             <div id="divImg1"><img src="Images/whatsapp-icone-2.png" alt="Wpp" id="imgWpp"></div>
             <div id="divImg2"><img src="Images/githubicon.png" alt="github" id="imgGitH"></div>
             <div id="divImg3"><img src="Images/gmail.png" alt="gmail" id="imgGmail"></div>
 
         </div>
 
-        <div id="tech">
-
-
-
-                
+        <!-------------------------------------Tecnologias----------------------------------------->
+        <div style="margin-top: 200px; margin-bottom: 300px; height: 700px;">
+            <div style=" margin-top: 100px;">
+                <div style="width: 1280; height: 5px; background-color: #ec911a;"></div>
+                <h1 id="h1tech">Tecnologias</h1>
+            </div>
+            <div>
+                <img src="Images/css_icon.png" alt="">
+                <img src="Images/html_icones.png" alt="">
+                <img src="Images/javascript-icon.png" alt="">
+                <img src="Images/C_sharp.png" alt="">
+                <img src="" alt="">
+                <img src="" alt="">
+            </div>
         </div>
 
-    </div>
+
+        <!-------------------------------------Formação----------------------------------------->
+        <div style="background-color: #daa700; width: 1280px; height: 500px;">
+
+        </div>
+
+    </main>
 
     
     <!-----verde principal rgb(0, 10, 3)------>
