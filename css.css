@@ -30,6 +30,8 @@ img
     justify-content: space-between;
     align-items: center;
     background-color: white;
+    position: absolute;
+    top: 10px;
 }
 
 #divText
@@ -51,8 +53,16 @@ img
     background-color: rgba(127, 255, 212, 0);
     font-size: 17px;
     font-weight: 700;
-    border-color: rgb(122, 78, 21);
-    color: rgb(1, 43, 20);
+    border-color: rgb(0, 17, 8);
+    color: rgb(7, 66, 34);
+}
+#btn
+{
+    width: 110px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 

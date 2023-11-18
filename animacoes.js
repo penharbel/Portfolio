@@ -1,78 +1,67 @@
 /*---------------------------controle das animações----------------------------*/
 var ativos = 0;
 var trianguloAtv = 0;
+var btn_cc = false;
+var controle_global = 100;
+var pT = -10;
 
-/*---------------------------Botão para scrollar----------------------------*/
+/*---------------------------Botão to scroll----------------------------*/
 function butao1()
 {
-    
-    var btn = document.getElementById("botaoSc").style;
-    var controle;
-        if(btn.height < 101 || btn.height == (99 + "px"))
-        {
-            controle = 100;
-            var int = setInterval(Anim, 1);   
-            return;  
-        }
-        else if(btn.height == (1 + "px")){
-            btn.display = "block";
-            controle = 0;
-            var inte = setInterval(AnimReverse, 1);
+    let btn = document.getElementById("botaoSc").style;
+    function btn_anim()
+    {
+        if(controle_global <= 5 && btn_cc == false){
+            scrollN();
+            controle_global = 7;
+            return;
+        }else if(controle_global >= 100 && btn_cc == true){
+            controle_global = 100;
+            pT = -2;
+            btn_cc = false;
             return;
         }
-
-            function Anim()
-            {
-                if(controle <= 50)
-                {
-                    document.getElementById("botaoSc").innerHTML = "";
-                }
-                if(controle == 0)
-                {
-                    btn.display = "none";
-                    clearInterval(int);
-                    int == null;
-                    scrollar();
-                    return;
-                }
-                btn.height = controle + "px";
-                controle--; 
-            }
-            function AnimReverse()
-            {
-                if(controle == 50)
-                {
-                document.getElementById("botaoSc").innerHTML = "Vamos?";
-                }
-                if(controle == 100)
-                {
-                    clearInterval(inte);
-                    int == null;
-                    return;
-                }
-                btn.height = controle + "px";
-                controle++; 
-            }
-}
-function scrollar()
-{
-    let controle = window.scrollY;
-    let A = setInterval(scol, 1);
-    let B = setInterval(scol, 1);
-
-        function scol()
-        {
-            if(controle == 680)
-            {
-                clearInterval(A);
-                clearInterval(B);
-                A = null;
-                return;
-            }
-            scrollTo(0, controle)
-            controle++;
-            controle++;
+        if(controle_global <= 85 && btn_cc == false){
+            document.getElementById("botaoSc").innerHTML = "";
+        }else if(controle_global >= 85 && btn_cc == true){
+            document.getElementById("botaoSc").innerHTML = "Vamos?";
         }
+        if(controle_global <= 7 && btn_cc == false){
+            btn.display = "none";
+        }else if(controle_global >= 7 && btn_cc == true){
+            btn.display = "block";
+        }
+        btn.height = controle_global + "px";
+        btn.width = controle_global + "px";
+        controle_global += pT;
+        requestAnimationFrame(btn_anim);
+    }
+    if(btn_cc == false)
+    {
+        pT *= -1;
+        btn_anim();
+        btn_cc = true;
+        return;
+    }else if(btn_cc == true){
+        pT *= -1;
+        btn_anim();
+        btn_cc = false;
+        return;
+    }
+}
+function scrollN()
+{
+    let controle = 0;
+    descer();
+    function descer() {
+    if(controle >= 700)
+    {
+        return;
+    }
+    scrollTo(0, controle);
+    controle += 12;
+    requestAnimationFrame(descer);
+    }
 }
 
 /*---------------------------triangulo-opções----------------------------*/
