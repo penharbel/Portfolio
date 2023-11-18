@@ -1,6 +1,7 @@
 /*---------------------------controle das animações----------------------------*/
 var ativos = 0;
-var trianguloAtv = 0;
+var trianguloAtv = false;
+var dx = -2;
 var btn_cc = false;
 var controle_global = 100;
 var pT = -10;
@@ -9,8 +10,7 @@ var pT = -10;
 function butao1()
 {
     let btn = document.getElementById("botaoSc").style;
-    function btn_anim()
-    {
+    function btn_anim(){
         if(controle_global <= 5 && btn_cc == false){
             scrollN();
             controle_global = 7;
@@ -35,8 +35,7 @@ function butao1()
         btn.width = controle_global + "px";
         controle_global += pT;
         requestAnimationFrame(btn_anim);
-    }
-    if(btn_cc == false)
+    }if(btn_cc == false)
     {
         pT *= -1;
         btn_anim();
@@ -67,61 +66,31 @@ function scrollN()
 /*---------------------------triangulo-opções----------------------------*/
 function TrianguloTam()
 {
-    if(trianguloAtv == 1)
-    {
-        return;
-    }
-   let Bl = document.getElementById("triangulo").style;
+   let Tl = document.getElementById("triangulo").style;
    let Tp = document.getElementById("topPrincipal").style;
-   let controle = 100;
-
-   let I = setInterval(trianguloAlm, 2)
-
-        function trianguloAlm()
-        {
-            if(controle == 130)
-            {
-                clearInterval(I);
-                trianguloAtv = 1;
-                return;
-            }
-            Bl.borderTop = controle + "px solid #c57000";
-            Bl.borderLeft = controle + "px solid transparent";
-            Bl.borderRight = controle + "px solid transparent";
-            if(controle < 120)
-            {
-                Tp.height = (controle - 52) + "px";
-                Tp.width = (controle - 52) + "px";
-            }
-            controle++;
-        }
-
-}
-function TrianguloTim()
-{
-   let Bl = document.getElementById("triangulo").style;
-   let Tp = document.getElementById("topPrincipal").style;
-   let controle = 130;
-
-   let I = setInterval(trianguloDlm, 1);
-
-    function trianguloDlm()
-    {
-        if(controle == 100)
-        {
-            clearInterval(I);
-            trianguloAtv = 0;
+    function trianguloAlm(){
+        if(controle_global >= 125 && trianguloAtv == true){
+            controle_global = 124;
+            return;
+        }else if(controle_global <= 100 && trianguloAtv == false){
+            controle_global = 101;
             return;
         }
-        Bl.borderTop = controle + "px solid #c57000";
-        Bl.borderLeft = controle + "px solid transparent";
-        Bl.borderRight = controle + "px solid transparent";
-        if(controle > 110)
-        {
-            Tp.height = (controle - 60) + "px";
-            Tp.width = (controle - 60) + "px";
-        }
-        controle--;
+        Tp.height = (controle_global - 52) + "px";
+        Tp.width = (controle_global - 52) + "px";
+        Tl.borderTop = controle_global + "px solid #c57000";
+        Tl.borderLeft = controle_global + "px solid transparent";
+        Tl.borderRight = controle_global + "px solid transparent";
+        controle_global += dx;
+        requestAnimationFrame(trianguloAlm);
+    }if(trianguloAtv == false){
+        dx *= -1;
+        trianguloAtv = true;
+        trianguloAlm();
+    }else if(trianguloAtv == true){
+        dx *= -1;
+        trianguloAtv = false;
+        trianguloAlm();
     }
 }
 
