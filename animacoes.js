@@ -1,6 +1,5 @@
 /*---------------------------controle das animações----------------------------*/
 var ativos = 0;
-var trianguloAtv = false;
 var dx = -2;
 var btn_cc = false;
 var controle_global = 100;
@@ -11,69 +10,59 @@ function butao1()
 {
     let btn = document.getElementById("botaoSc").style;
     function btn_anim(){
-        if(controle_global <= 5 && btn_cc == false){
+        if(controle_global <= 5){
             scrollN();
             controle_global = 7;
             return;
-        }else if(controle_global >= 100 && btn_cc == true){
+        }else if(controle_global >= 101){
             controle_global = 100;
             pT = -2;
             btn_cc = false;
             return;
         }
-        if(controle_global <= 85 && btn_cc == false){
+        if(controle_global <= 85){
             document.getElementById("botaoSc").innerHTML = "";
-        }else if(controle_global >= 85 && btn_cc == true){
+        }else if(controle_global >= 85){
             document.getElementById("botaoSc").innerHTML = "Vamos?";
         }
-        if(controle_global <= 7 && btn_cc == false){
+        if(controle_global <= 7){
             btn.display = "none";
-        }else if(controle_global >= 7 && btn_cc == true){
+        }else if(controle_global >= 7){
             btn.display = "block";
         }
         btn.height = controle_global + "px";
         btn.width = controle_global + "px";
         controle_global += pT;
         requestAnimationFrame(btn_anim);
-    }if(btn_cc == false)
-    {
-        pT *= -1;
-        btn_anim();
-        btn_cc = true;
-        return;
-    }else if(btn_cc == true){
-        pT *= -1;
-        btn_anim();
-        btn_cc = false;
-        return;
     }
+    pT *= -1;
+    btn_anim();
+    btn_cc = true;
+    return;
 }
 function scrollN()
 {
-    let controle = 0;
-    descer();
-    function descer() {
-    if(controle >= 700)
-    {
+let controle = 0;
+    function descer() {if(controle >= 700){
         return;
     }
     scrollTo(0, controle);
     controle += 12;
     requestAnimationFrame(descer);
     }
+descer();
 }
 
 /*---------------------------triangulo-opções----------------------------*/
-function TrianguloTam()
-{
-   let Tl = document.getElementById("triangulo").style;
-   let Tp = document.getElementById("topPrincipal").style;
+function TrianguloTam(){
+let Tl = document.getElementById("triangulo").style;
+let Tp = document.getElementById("topPrincipal").style;
     function trianguloAlm(){
-        if(controle_global >= 125 && trianguloAtv == true){
-            controle_global = 124;
+        if(controle_global >= 126){
+            controle_global = 125;
             return;
-        }else if(controle_global <= 100 && trianguloAtv == false){
-            controle_global = 101;
+        }else if(controle_global <= 99){
+            controle_global = 100;
             return;
         }
         Tp.height = (controle_global - 52) + "px";
@@ -83,15 +72,9 @@ function TrianguloTam()
         Tl.borderRight = controle_global + "px solid transparent";
         controle_global += dx;
         requestAnimationFrame(trianguloAlm);
-    }if(trianguloAtv == false){
-        dx *= -1;
-        trianguloAtv = true;
-        trianguloAlm();
-    }else if(trianguloAtv == true){
-        dx *= -1;
-        trianguloAtv = false;
-        trianguloAlm();
     }
+    dx *= -1;
+    trianguloAlm();
 }
 
 /*---------------------------<div> do triangulo----------------------------*/
