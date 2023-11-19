@@ -121,21 +121,18 @@ img
 {
     width: 50px;
     height: 50px;
-    position: absolute;
     z-index: 0;
 }
 #imgGmail
 {
     width: 50px;
     height: 50px;
-    position: absolute;
     z-index: 0;
 }
 #imgGitH
 {
     width: 50px;
     height: 50px;
-    position: absolute;
     z-index: 0;
 }
 
@@ -146,7 +143,7 @@ img
     width: 75px;
     height: 75px;
     background-color: #eb8b0e;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -158,7 +155,7 @@ img
     width: 75px;
     height: 75px;
     background-color: #eb8b0e;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -170,7 +167,7 @@ img
     width: 75px;
     height: 75px;
     background-color: #eb8b0e;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;

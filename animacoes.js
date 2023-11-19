@@ -1,44 +1,48 @@
 /*---------------------------controle das animações----------------------------*/
-var ativos = 0;
+var n = 1;
 var dx = -2;
 var btn_cc = false;
-var controle_global = 100;
+var controle_Círculo = 100;
+var controle_Triângulo = 100;
 var pT = -10;
+var controleP = 0;
+var Px = 170;
+var Dx = -16;
+var ES = "saida";
 
 /*---------------------------Botão to scroll----------------------------*/
 function butao1()
 {
     let btn = document.getElementById("botaoSc").style;
     function btn_anim(){
-        if(controle_global <= 5){
+        if(controle_Círculo <= 5){
             scrollN();
-            controle_global = 7;
+            controle_Círculo = 7;
             return;
-        }else if(controle_global >= 101){
-            controle_global = 100;
+        }else if(controle_Círculo >= 101){
+            controle_Círculo = 100;
             pT = -2;
             btn_cc = false;
             return;
         }
-        if(controle_global <= 85){
+        if(controle_Círculo <= 85){
             document.getElementById("botaoSc").innerHTML = "";
-        }else if(controle_global >= 85){
+        }else if(controle_Círculo >= 85){
             document.getElementById("botaoSc").innerHTML = "Vamos?";
         }
-        if(controle_global <= 7){
+        if(controle_Círculo <= 7){
             btn.display = "none";
-        }else if(controle_global >= 7){
+        }else if(controle_Círculo >= 7){
             btn.display = "block";
         }
-        btn.height = controle_global + "px";
-        btn.width = controle_global + "px";
-        controle_global += pT;
+        btn.height = controle_Círculo + "px";
+        btn.width = controle_Círculo + "px";
+        controle_Círculo += pT;
         requestAnimationFrame(btn_anim);
     }
-    pT *= -1;
-    btn_anim();
-    btn_cc = true;
-    return;
+pT *= -1;
+btn_anim();
+btn_cc = true;
 }
 function scrollN()
 {
@@ -58,205 +62,72 @@ function TrianguloTam(){
 let Tl = document.getElementById("triangulo").style;
 let Tp = document.getElementById("topPrincipal").style;
     function trianguloAlm(){
-        if(controle_global >= 126){
-            controle_global = 125;
+        if(controle_Triângulo >= 126){
+            controle_Triângulo = 125;
             return;
-        }else if(controle_global <= 99){
-            controle_global = 100;
+        }else if(controle_Triângulo <= 99){
+            controle_Triângulo = 100;
             return;
         }
-        Tp.height = (controle_global - 52) + "px";
-        Tp.width = (controle_global - 52) + "px";
-        Tl.borderTop = controle_global + "px solid #c57000";
-        Tl.borderLeft = controle_global + "px solid transparent";
-        Tl.borderRight = controle_global + "px solid transparent";
-        controle_global += dx;
+        Tp.height = (controle_Triângulo - 52) + "px";
+        Tp.width = (controle_Triângulo - 52) + "px";
+        Tl.borderTop = controle_Triângulo + "px solid #c57000";
+        Tl.borderLeft = controle_Triângulo + "px solid transparent";
+        Tl.borderRight = controle_Triângulo + "px solid transparent";
+        controle_Triângulo += dx;
         requestAnimationFrame(trianguloAlm);
     }
-    dx *= -1;
-    trianguloAlm();
+dx *= -1;
+trianguloAlm();
 }
 
-/*---------------------------<div> do triangulo----------------------------*/
-function topdivS()
-{
-
-var D = setInterval(acimaD, 1);
-var E = setInterval(acimaD, 1);
-
-
-    function acimaD()
-    {
-        if(window.scrollY > 630)
-        {
-            let mov = window.scrollY;
-
-            document.getElementById("topdiv").style.top = mov + "px";
-
-        }
-        if(window.scrollY < 658)
-        {
-            document.getElementById("topdiv").style.top = 658 + "px"; 
-        }
-    }
-
-
-
+/*---------------------------triangulo responsivo----------------------------*/
+function topdivS(){
+if(window.scrollY > 630){
+    let mov = window.scrollY;
+    document.getElementById("topdiv").style.top = mov + "px";
 }
-
+if(window.scrollY < 658){
+    document.getElementById("topdiv").style.top = 658 + "px"; 
+}
+requestAnimationFrame(topdivS);
+}
 
 /*---------------------------Animação para contatos----------------------------*/
-function constroi()
-{
-    if(ativos == 0)
-    {
-        contatosE();
-        return;
-    }
-    else{
-        RB1();
-        return;
-    }
-}
-function contatosE()
-{
-
-    let controle = 0;
-    let A = document.getElementById("divImg1").style;
-    A.display = "flex";
-    let F = setInterval(ani, 0.0000001);
-    let G = setInterval(ani, 0.0000001);
-        function ani()
-        {
-            if(controle > 180)
-            {
-                clearInterval(F);
-                clearInterval(G);
-                A = null;
-                C2();
-                return;
-            }
-            A.top = controle +"px"
-            controle++;
-            controle++;
-        }
-}
-function C2()
-{
-    let controle = 0;
-    let A = document.getElementById("divImg2").style;
-    A.display = "flex";
-    let F = setInterval(ani, 0.0000001);
-    let G = setInterval(ani, 0.0000001);
-        function ani()
-        {
-            if(controle > 280)
-            {
-                clearInterval(F);
-                clearInterval(G);
-                C3();
-                return;
-            }
-            A.top = controle +"px"
-            controle++;
-            controle++;
-        }
-}
-function C3()
-{
-    let controle = 0
-    let A = document.getElementById("divImg3").style;
-    A.display = "flex";
-    let F = setInterval(ani, 0.0000001);
-    let G = setInterval(ani, 0.0000001);
-        function ani()
-        {
-            if(controle > 380)
-            {
-                clearInterval(F);
-                clearInterval(G);
-                ativos = 1;
-                return;
-            }
-            A.top = controle +"px"
-            controle++;
-            controle++;
-        }
-}
-function RB1()
-{
-    let controle = 180;
-    let A = document.getElementById("divImg1").style
-    let G = setInterval(Anm1, 1);
-    let H = setInterval(Anm1, 1);
-
-    function Anm1()
-    {
-        if(controle == 0)
-        {
-            clearInterval(G);
-            clearInterval(H);
-            RB2();
+function contatosAnim(){
+    function Enter_Out(){
+    let contato = document.getElementById("divImg" + n).style;
+        if(controleP > Px && ES == "saida"){
+            Px += 120;
+            controleP = 0; 
+            n += 1;
+            Enter_Out();
+            return;
+        }else if(controleP <= 1 && ES == "entrada"){
+            n -= 1;
+            controleP = 170 + (120 * n - 110);
+            Enter_Out();
             return;
         }
-        A.top = controle + "px";
-        controle--;
-        controle--;
-    }
-
-}
-function RB2()
-{
-    let controle = 280;
-    let A = document.getElementById("divImg2").style
-    let G = setInterval(Anm1, 1);
-    let H = setInterval(Anm1, 1);
-
-    function Anm1()
-    {
-        if(controle == 0)
-        {
-            clearInterval(G);
-            clearInterval(H);
-            RB3();
+        if(n == 3 && controleP > 399 && ES == "saida"){
+            n = 3;
+            controleP = 170 + (120 * n - 110);
+            ES = "entrada";
+            controleP += 12;
+            contato.top = controleP + "px";
+            return;
+        }else if(n <= 1 && controleP < 21 && ES == "entrada"){
+            ES = "saida";
+            n = 1;
+            controleP = 0;
+            Px = 170;
+            contato.top = controleP + "px";
             return;
         }
-        A.top = controle + "px";
-        controle--;
-        controle--;
+    controleP += Dx;
+    contato.top = controleP + "px";
+    requestAnimationFrame(Enter_Out);
     }
-
-}
-function RB3()
-{
-    let controle = 380;
-    let A = document.getElementById("divImg3").style
-    let G = setInterval(Anm1, 1);
-    let H = setInterval(Anm1, 1);
-
-    function Anm1()
-    {
-        if(controle == 0)
-        {
-            clearInterval(G);
-            clearInterval(H);
-            atv();
-            return;
-        }
-        A.top = controle + "px";
-        controle--;
-        controle--;
-    }
-
-}
-
-function atv()
-{
-    ativos = 0;
-}
-
-/*---------------------------Animação para as tecnologias----------------------------*/
-function animacaoTec()
-{
-
+Dx *= -1;
+Enter_Out();
 }
