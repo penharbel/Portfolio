@@ -43,6 +43,8 @@ img
     flex-direction: column;
 }
 
+
+
 #botaoSc
 {
     width: 100px;
@@ -104,6 +106,7 @@ img
     background: radial-gradient(#FF9200, #B56800);
     width: 1280px;
     height: 5px;
+    margin-left: -18px;
     z-index: 1;
     position: absolute;
 }
@@ -138,31 +141,7 @@ img
 
 
 
-#divImg1
-{
-    width: 75px;
-    height: 75px;
-    background-color: #eb8b0e;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    border-radius: 37px;
-    z-index: 1;
-}
-#divImg2
-{
-    width: 75px;
-    height: 75px;
-    background-color: #eb8b0e;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    border-radius: 37px;
-    z-index: 1;
-}
-#divImg3
+.divImg
 {
     width: 75px;
     height: 75px;
@@ -175,12 +154,33 @@ img
     z-index: 1;
 }
 
-#h1tech
+.projetos
 {
-    color: #ec911a;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 800;
-    margin-top: 25px;
+    background-color: rgb(207, 189, 110);
+    width: 250px;
+    height: 400px;
+    margin: 20px;
+}
+
+#projetosDiv
+{
+    background-color: rgba(0, 255, 255, 0.192);
+    width: 1250px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 200px;
-    text-align: center;
+    position: relative;
+    top: -300px;
+}
+
+#h1projetos
+{
+    font-weight: 900;
+    text-decoration: overline;
+    position: absolute;
+    color: #c28433;
+    top: 900px;
+    left: 590px;
 }
