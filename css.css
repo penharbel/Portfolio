@@ -177,10 +177,10 @@ img
 
 #h1projetos
 {
-    font-weight: 900;
-    text-decoration: overline;
+    font-weight: 800;
+    font-family: Poppins;
     position: absolute;
-    color: #c28433;
+    color: rgb(54, 138, 37);
     top: 900px;
     left: 590px;
 }
