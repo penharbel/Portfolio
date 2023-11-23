@@ -91,12 +91,15 @@ trianguloAlm();
 
 /*---------------------------triangulo responsivo----------------------------*/
 function topdivS(){
-if(window.scrollY > 630){
+    let obj = document.getElementById("topdiv").style;
+    
+if(window.scrollY > 658){
     let mov = window.scrollY;
-    document.getElementById("topdiv").style.top = mov + "px";
-}
-if(window.scrollY < 658){
-    document.getElementById("topdiv").style.top = 658 + "px"; 
+    obj.position = "fixed";
+    obj.top = 0 + "px";
+}else if(window.scrollY < 658){
+    obj.position = "absolute";
+    obj.top = 658 + "px"; 
 }
 requestAnimationFrame(topdivS);
 }

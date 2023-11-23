@@ -73,9 +73,9 @@ img
     margin-left: -10px;
     margin-right: -10px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 #topdiv
@@ -86,6 +86,7 @@ img
     display: flex;
     justify-content: center;
     position: absolute;
+    z-index: 5;
 }
 
 #triangulo
@@ -170,23 +171,23 @@ img
 {
     background-color: rgba(0, 255, 255, 0.192);
     width: 1250px;
-    height: 600px;
+    height: 800px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 200px;
+    flex-direction: column;
     position: absolute;
-    top: 1100px;
+    top: 1000px;
 }
 
 #h1projetos
 {
     font-weight: 800;
     font-family: Poppins;
-    position: absolute;
     color: rgb(54, 138, 37);
-    top: 900px;
-    left: 590px;
+    position: relative;
+    top: 300px;
+    text-decoration: underline;
 }
 
 /*--------------------------animações-----------------------------*/
