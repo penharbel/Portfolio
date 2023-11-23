@@ -1,14 +1,16 @@
 /*---------------------------controle das animações----------------------------*/
 var n = 1;
 var dx = -2;
+var pT = -10;
+var Px = 170;
+var Dx = -16;
+var fogV = 2000;
+var conE = -1;
+var ES = "saida";
 var btn_cc = false;
 var controle_Círculo = 100;
 var controle_Triângulo = 100;
-var pT = -10;
 var controleP = 0;
-var Px = 170;
-var Dx = -16;
-var ES = "saida";
 
 /*---------------------------Botão to scroll----------------------------*/
 function butao1()
@@ -44,14 +46,20 @@ pT *= -1;
 btn_anim();
 btn_cc = true;
 }
-function scrollN()
-{
+
+function scrollN(){
 let controle = 0;
-    function descer() {if(controle >= 700){
+let dX = 2;
+    function descer(){if(controle >= 700){
         return;
     }
+    if(controle < 100){
+        dX += 0.2;
+    }else if(controle > 600){
+        dX -= 0.2;
+    }
     scrollTo(0, controle);
-    controle += 12;
+    controle += dX;
     requestAnimationFrame(descer);
     }
 descer();
@@ -131,3 +139,4 @@ function contatosAnim(){
 Dx *= -1;
 Enter_Out();
 }
+

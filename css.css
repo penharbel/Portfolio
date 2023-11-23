@@ -160,6 +160,10 @@ img
     width: 250px;
     height: 400px;
     margin: 20px;
+    position: absolute;
+    animation-name: flutuar;
+    animation-duration: 10s;
+    animation-iteration-count:infinite;
 }
 
 #projetosDiv
@@ -171,8 +175,8 @@ img
     justify-content: center;
     align-items: center;
     margin-bottom: 200px;
-    position: relative;
-    top: -300px;
+    position: absolute;
+    top: 1100px;
 }
 
 #h1projetos
@@ -183,4 +187,15 @@ img
     color: rgb(54, 138, 37);
     top: 900px;
     left: 590px;
+}
+
+/*--------------------------animações-----------------------------*/
+@keyframes flutuar{
+    0%{
+        top: 50px;
+    }50%{
+        top: 100px;
+    }100%{
+        top: 50px;
+    } 
 }
